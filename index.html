@@ -21,6 +21,7 @@
             --dark: #1b5e20;
             --text: #333333;
             --text-light: #666666;
+            --whatsapp: #25D366;
         }
         
         body {
@@ -40,6 +41,18 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            animation: cardEntrance 0.8s ease-out;
+        }
+
+        @keyframes cardEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
         
         .card-header {
@@ -47,6 +60,19 @@
             color: white;
             padding: 30px 25px;
             text-align: center;
+            position: relative;
+            animation: headerSlide 0.6s ease-out;
+        }
+
+        @keyframes headerSlide {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
         
         .logo-container {
@@ -64,6 +90,18 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            animation: logoPulse 2s infinite alternate;
+        }
+
+        @keyframes logoPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            100% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            }
         }
         
         .business-card img {
@@ -90,6 +128,18 @@
         
         .profile-section {
             margin-bottom: 25px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .name {
@@ -116,10 +166,23 @@
             height: 2px;
             background: linear-gradient(to right, transparent, var(--accent), transparent);
             margin: 25px 0;
+            animation: expandWidth 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes expandWidth {
+            0% {
+                width: 0%;
+                opacity: 0;
+            }
+            100% {
+                width: 100%;
+                opacity: 1;
+            }
         }
         
         .contact-section {
             margin-bottom: 25px;
+            animation: fadeIn 0.8s ease-out 0.6s both;
         }
         
         .section-title {
@@ -144,6 +207,23 @@
             border-radius: 10px;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .contact-item:hover::before {
+            left: 100%;
         }
         
         .contact-item:hover {
@@ -165,11 +245,13 @@
             font-size: 1.1rem;
             margin-right: 15px;
             flex-shrink: 0;
+            transition: all 0.3s ease;
         }
         
         .contact-item:hover .contact-icon {
             background: var(--primary);
             color: white;
+            transform: rotate(10deg) scale(1.1);
         }
         
         .contact-value {
@@ -180,10 +262,12 @@
         .brand-section {
             text-align: center;
             margin-bottom: 25px;
+            animation: fadeIn 0.8s ease-out 0.8s both;
         }
         
         .social-section {
             text-align: center;
+            animation: fadeIn 0.8s ease-out 1s both;
         }
         
         .social-title {
@@ -211,18 +295,31 @@
             font-size: 1.2rem;
             text-decoration: none;
             transition: all 0.3s ease;
+            animation: iconEntrance 0.5s ease-out 1.2s both;
+        }
+
+        @keyframes iconEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
         
         .social-icon:hover {
             background: var(--primary);
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.1);
         }
         
         .action-buttons {
             display: flex;
             gap: 12px;
             margin-top: 25px;
+            animation: fadeIn 0.8s ease-out 1.4s both;
         }
         
         .btn {
@@ -238,6 +335,37 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .btn:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
         }
         
         .btn-primary {
@@ -248,6 +376,7 @@
         .btn-primary:hover {
             background: linear-gradient(135deg, var(--secondary), var(--accent));
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 95, 35, 0.3);
         }
         
         .btn-secondary {
@@ -259,6 +388,60 @@
         .btn-secondary:hover {
             background: #dcedc8;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp), #128C7E);
+            color: white;
+            margin-top: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .btn-whatsapp {
+    background: linear-gradient(135deg, var(--whatsapp), #128C7E);
+    color: white;
+    margin-top: 15px;
+    animation: pulse 2s infinite;
+    width: 100%;
+    flex: none;
+    padding: 16px; /* Slightly larger padding */
+    font-size: 1rem; /* Slightly larger font */
+}
+
+.btn-whatsapp:hover {
+    background: linear-gradient(135deg, #128C7E, var(--whatsapp));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    animation: none;
+}
+
+        .click-feedback {
+            animation: clickAnimation 0.3s ease;
+        }
+
+        @keyframes clickAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.95);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
         
         @media (max-width: 480px) {
@@ -367,6 +550,11 @@
                     <i class="fas fa-phone"></i> Call Now
                 </button>
             </div>
+
+            <!-- New Share Button -->
+            <button class="btn btn-whatsapp" id="shareBtn">
+                <i class="fab fa-whatsapp"></i> Share on WhatsApp
+            </button>
         </div>
     </div>
 
@@ -374,10 +562,22 @@
         document.addEventListener('DOMContentLoaded', function() {
             const saveContactBtn = document.getElementById('saveContact');
             const callNowBtn = document.getElementById('callNow');
+            const shareBtn = document.getElementById('shareBtn');
             const phoneContact = document.getElementById('phoneContact');
             const emailContact = document.getElementById('emailContact');
             const websiteContact = document.getElementById('websiteContact');
             const addressContact = document.getElementById('addressContact');
+            
+            // Add click animation to all buttons and contact items
+            const allClickableItems = document.querySelectorAll('.btn, .contact-item, .social-icon');
+            allClickableItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.add('click-feedback');
+                    setTimeout(() => {
+                        this.classList.remove('click-feedback');
+                    }, 300);
+                });
+            });
             
             // Phone contact click
             phoneContact.addEventListener('click', function() {
@@ -442,8 +642,35 @@ END:VCARD`;
             callNowBtn.addEventListener('click', function() {
                 window.location.href = 'tel:+919443232727';
             });
+
+            // Share on WhatsApp functionality
+            shareBtn.addEventListener('click', function() {
+                const shareText = `Check out K. Karunanithi's digital business card:
+                
+🏢 Think Beyond Horizon Projects (P) Ltd
+📞 +91 94432 32727
+📧 tbhprojects.in@gmail.com
+🌐 www.thinkbeyondhorizon.in
+📍 17a, Jagadeeswaran St, T.Nagar, Chennai
+
+*Energy At Your Doorstep* - EV Battery Services & Solutions`;
+
+                const encodedText = encodeURIComponent(shareText);
+                const whatsappUrl = `https://wa.me/?text=${encodedText}`;
+                
+                window.open(whatsappUrl, '_blank');
+                
+                // Visual feedback
+                const originalText = shareBtn.innerHTML;
+                shareBtn.innerHTML = '<i class="fas fa-check"></i> Shared!';
+                shareBtn.style.animation = 'none';
+                
+                setTimeout(() => {
+                    shareBtn.innerHTML = originalText;
+                    shareBtn.style.animation = 'pulse 2s infinite';
+                }, 2000);
+            });
         });
     </script>
 </body>
 </html>
-
