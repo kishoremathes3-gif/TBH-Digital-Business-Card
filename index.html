@@ -396,6 +396,10 @@
             color: white;
             margin-top: 15px;
             animation: pulse 2s infinite;
+            width: 100%;
+            flex: none;
+            padding: 16px;
+            font-size: 1rem;
         }
 
         @keyframes pulse {
@@ -410,23 +414,12 @@
             }
         }
         
-        .btn-whatsapp {
-    background: linear-gradient(135deg, var(--whatsapp), #128C7E);
-    color: white;
-    margin-top: 15px;
-    animation: pulse 2s infinite;
-    width: 100%;
-    flex: none;
-    padding: 16px; /* Slightly larger padding */
-    font-size: 1rem; /* Slightly larger font */
-}
-
-.btn-whatsapp:hover {
-    background: linear-gradient(135deg, #128C7E, var(--whatsapp));
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-    animation: none;
-}
+        .btn-whatsapp:hover {
+            background: linear-gradient(135deg, #128C7E, var(--whatsapp));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            animation: none;
+        }
 
         .click-feedback {
             animation: clickAnimation 0.3s ease;
@@ -645,15 +638,38 @@ END:VCARD`;
 
             // Share on WhatsApp functionality
             shareBtn.addEventListener('click', function() {
-                const shareText = `Check out K. Karunanithi's digital business card:
-                
-🏢 Think Beyond Horizon Projects (P) Ltd
-📞 +91 94432 32727
-📧 tbhprojects.in@gmail.com
-🌐 www.thinkbeyondhorizon.in
-📍 17a, Jagadeeswaran St, T.Nagar, Chennai
+                const currentUrl = window.location.href;
+                const currentTime = new Date().toLocaleTimeString('en-US', { 
+                    hour: 'numeric', 
+                    minute: '2-digit',
+                    hour12: true 
+                }).toUpperCase();
 
-*Energy At Your Doorstep* - EV Battery Services & Solutions`;
+                const shareText = `🌟 *TBH Online Business Card* 🌟
+
+*Think Beyond Horizon*
+*Energy At Your Doorstep*
+
+📋 *Contact Details:*
+─────────────────
+👤 *Name:* K. Karunanithi
+💼 *Position:* Managing Director
+🏢 *Company:* Think Beyond Horizon Projects (P) Ltd
+
+📞 *Phone:* +91 94432 32727
+📧 *Email:* tbhprojects.in@gmail.com
+🌐 *Website:* www.thinkbeyondhorizon.in
+
+📍 *Address:*
+17a, Jagadeeswaran St, T.Nagar
+Chennai - 600017
+
+💡 *Digital Business Card:*
+${currentUrl}
+
+_Shared via Digital Card • ${currentTime}_
+
+⚡ *EV Battery Services & Sustainable Energy Solutions*`;
 
                 const encodedText = encodeURIComponent(shareText);
                 const whatsappUrl = `https://wa.me/?text=${encodedText}`;
