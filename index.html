@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EV Battery Solutions | Think Beyond Horizon</title>
+    <title>K. Karunanithi | Think Beyond Horizon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -40,43 +40,13 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            animation: cardEntrance 0.8s ease-out;
-        }
-        
-        @keyframes cardEntrance {
-            0% {
-                opacity: 0;
-                transform: translateY(30px) scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        
-        .business-card:hover {
-            transform: translateY(-5px);
         }
         
         .card-header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 25px;
+            padding: 30px 25px;
             text-align: center;
-            position: relative;
-            animation: headerSlide 0.6s ease-out;
-        }
-        
-        @keyframes headerSlide {
-            0% {
-                transform: translateY(-20px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
         
         .logo-container {
@@ -86,30 +56,14 @@
         }
         
         .logo-placeholder {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
-            font-size: 1.8rem;
-            font-weight: 700;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            animation: logoPulse 2s infinite alternate;
-        }
-
-        @keyframes logoPulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-            100% {
-                transform: scale(1.05);
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            }
         }
         
         .business-card img {
@@ -119,175 +73,121 @@
             border-radius: 50%;
         }
         
-        .brand-text {
-            text-align: center;
-        }
-        
         .company-name {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
         
         .tagline {
-            font-size: 0.9rem;
+            font-size: 1rem;
             opacity: 0.9;
-            font-weight: 500;
-        }
-        
-        .ev-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            animation: badgeBounce 1s ease-in-out;
-        }
-        
-        @keyframes badgeBounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
         }
         
         .card-body {
-            padding: 0;
+            padding: 30px 25px;
         }
         
         .profile-section {
-            padding: 25px;
-            text-align: center;
-            border-bottom: 1px solid #f0f0f0;
-            animation: fadeIn 0.8s ease-out 0.2s both;
-        }
-        
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+            margin-bottom: 25px;
         }
         
         .name {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 5px;
         }
         
         .position {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--secondary);
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .description {
             color: var(--text-light);
-            line-height: 1.5;
-            font-size: 0.9rem;
-            max-width: 300px;
-            margin: 0 auto;
+            line-height: 1.6;
+            font-size: 1rem;
         }
         
-        .services-section {
-            display: none;
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            margin: 25px 0;
         }
         
         .contact-section {
-            padding: 20px 25px;
-            animation: fadeIn 0.8s ease-out 0.4s both;
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 12px 15px;
+            background: var(--light);
+            border-radius: 10px;
             transition: all 0.3s ease;
             cursor: pointer;
-            border-radius: 8px;
-            padding-left: 10px;
-            padding-right: 10px;
         }
         
         .contact-item:hover {
-            background-color: var(--light);
-            transform: translateX(5px);
-        }
-        
-        .contact-item:active {
-            transform: translateX(5px) scale(0.98);
-        }
-        
-        .contact-item:last-child {
-            border-bottom: none;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: var(--accent);
+            color: white;
         }
         
         .contact-icon {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: var(--light);
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-right: 15px;
             flex-shrink: 0;
-            transition: all 0.3s ease;
         }
         
         .contact-item:hover .contact-icon {
             background: var(--primary);
             color: white;
-            transform: rotate(10deg) scale(1.1);
-        }
-        
-        .contact-details {
-            flex: 1;
-        }
-        
-        .contact-label {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-bottom: 3px;
         }
         
         .contact-value {
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 500;
-            color: var(--text);
-            transition: color 0.3s ease;
         }
         
-        .contact-item:hover .contact-value {
-            color: var(--primary);
+        .brand-section {
+            text-align: center;
+            margin-bottom: 25px;
         }
         
         .social-section {
-            padding: 20px 25px;
-            background: var(--light);
-            border-top: 1px solid #e0e0e0;
-            animation: fadeIn 0.8s ease-out 0.6s both;
+            text-align: center;
         }
         
         .social-title {
-            text-align: center;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 15px;
@@ -303,42 +203,26 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: white;
+            background: var(--light);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
             font-size: 1.2rem;
             text-decoration: none;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-            animation: iconEntrance 0.5s ease-out 0.8s both;
-        }
-        
-        @keyframes iconEntrance {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         
         .social-icon:hover {
             background: var(--primary);
             color: white;
-            transform: translateY(-3px) scale(1.1);
+            transform: translateY(-3px);
         }
         
         .action-buttons {
             display: flex;
-            padding: 20px 25px;
-            background: white;
-            border-top: 1px solid #f0f0f0;
             gap: 12px;
-            animation: fadeIn 0.8s ease-out 0.8s both;
+            margin-top: 25px;
         }
         
         .btn {
@@ -354,37 +238,6 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-        
-        .btn:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
-        }
-        
-        @keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(20, 20);
-                opacity: 0;
-            }
         }
         
         .btn-primary {
@@ -395,7 +248,6 @@
         .btn-primary:hover {
             background: linear-gradient(135deg, var(--secondary), var(--accent));
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(26, 95, 35, 0.3);
         }
         
         .btn-secondary {
@@ -409,45 +261,13 @@
             transform: translateY(-2px);
         }
         
-        .btn-pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(26, 95, 35, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(26, 95, 35, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(26, 95, 35, 0);
-            }
-        }
-        
-        .click-feedback {
-            animation: clickAnimation 0.3s ease;
-        }
-        
-        @keyframes clickAnimation {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(0.95);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        
         @media (max-width: 480px) {
             .business-card {
                 max-width: 100%;
             }
             
-            .card-header {
-                padding: 20px;
+            .card-header, .card-body {
+                padding: 25px 20px;
             }
             
             .action-buttons {
@@ -459,9 +279,6 @@
 <body>
     <div class="business-card">
         <div class="card-header">
-            <div class="ev-badge">
-                <i class="fas fa-bolt"></i> EV SPECIALIST
-            </div>
             <div class="logo-container">
                 <div class="logo-placeholder">
                     <img src="./TBH.png" alt="Think Beyond Horizon Logo">
@@ -482,60 +299,46 @@
                 </div>
             </div>
             
-            <div class="services-section">
-                <div class="section-title">
-                    <i class="fas fa-cogs"></i> Our Services
-                </div>
-                <div class="services-grid">
-                    <div class="service-item">Battery Diagnostics</div>
-                    <div class="service-item">Battery Repair</div>
-                    <div class="service-item">Battery Replacement</div>
-                    <div class="service-item">Charging Solutions</div>
-                    <div class="service-item">Maintenance</div>
-                    <div class="service-item">Emergency Support</div>
+            <div class="divider"></div>
+            
+            <div class="contact-section">
+                <div class="section-title">Contact Information</div>
+                <div class="contact-grid">
+                    <div class="contact-item" id="phoneContact">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-value">+91 9443232727</div>
+                    </div>
+                    
+                    <div class="contact-item" id="emailContact">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-value">tbhprojects.in@gmail.com</div>
+                    </div>
+                    
+                    <div class="contact-item" id="websiteContact">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-value">www.thinkbeyondhorizon.in</div>
+                    </div>
+                    
+                    <div class="contact-item" id="addressContact">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-value">17a, Jagadeeswaran St, T.Nagar, Chennai, 600017</div>
+                    </div>
                 </div>
             </div>
             
-            <div class="contact-section">
-                <div class="contact-item" id="phoneContact">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <div class="contact-label">Mobile</div>
-                        <div class="contact-value">+91 9443232727</div>
-                    </div>
-                </div>
-                
-                <div class="contact-item" id="emailContact">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">tbhprojects.in@gmail.com</div>
-                    </div>
-                </div>
-                
-                <div class="contact-item" id="websiteContact">
-                    <div class="contact-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="contact-details">
-                        <div class="contact-label">Website</div>
-                        <div class="contact-value">www.thinkbeyondhorizon.in</div>
-                    </div>
-                </div>
-                
-                <div class="contact-item" id="addressContact">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <div class="contact-label">Address</div>
-                        <div class="contact-value">17a, Jagadeeswaran St, T.Nagar, Chennai, 60001</div>
-                    </div>
-                </div>
+            <div class="divider"></div>
+            
+            <div class="brand-section">
+                <div class="company-name">Think Beyond Horizon</div>
+                <div class="tagline">Energy At Your Doorstep</div>
             </div>
             
             <div class="social-section">
@@ -557,7 +360,7 @@
             </div>
             
             <div class="action-buttons">
-                <button class="btn btn-primary btn-pulse" id="saveContact">
+                <button class="btn btn-primary" id="saveContact">
                     <i class="fas fa-download"></i> Save Contact
                 </button>
                 <button class="btn btn-secondary" id="callNow">
@@ -576,17 +379,6 @@
             const websiteContact = document.getElementById('websiteContact');
             const addressContact = document.getElementById('addressContact');
             
-            // Add click animation to all buttons and contact items
-            const allClickableItems = document.querySelectorAll('.btn, .contact-item, .social-icon');
-            allClickableItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    this.classList.add('click-feedback');
-                    setTimeout(() => {
-                        this.classList.remove('click-feedback');
-                    }, 300);
-                });
-            });
-            
             // Phone contact click
             phoneContact.addEventListener('click', function() {
                 window.location.href = 'tel:+919443232727';
@@ -604,7 +396,7 @@
             
             // Address contact click (opens in Google Maps)
             addressContact.addEventListener('click', function() {
-                const address = "17a, Jagadeeswaran St, T.Nagar, Chennai, 60001";
+                const address = "17a, Jagadeeswaran St, T.Nagar, Chennai, 600017";
                 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
                 window.open(mapsUrl, '_blank');
             });
@@ -619,7 +411,7 @@ ORG:Think Beyond Horizon Projects (P) Ltd
 TITLE:Managing Director
 EMAIL:tbhprojects.in@gmail.com
 TEL:+91-9443232727
-ADR:;;17a, Jagadeeswaran St, T.Nagar;Chennai;;60001;India
+ADR:;;17a, Jagadeeswaran St, T.Nagar;Chennai;;600017;India
 URL:www.thinkbeyondhorizon.in
 NOTE:EV Battery Services and Solutions
 END:VCARD`;
@@ -629,7 +421,7 @@ END:VCARD`;
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'K.Karunanithi-EV-Specialist.vcf';
+                a.download = 'K.Karunanithi.vcf';
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
@@ -637,14 +429,12 @@ END:VCARD`;
                 
                 // Visual feedback
                 const originalText = saveContactBtn.innerHTML;
-                saveContactBtn.innerHTML = '<i class="fas fa-check"></i> Contact Saved!';
+                saveContactBtn.innerHTML = '<i class="fas fa-check"></i> Saved!';
                 saveContactBtn.style.background = 'linear-gradient(135deg, #4CAF50, #66BB6A)';
-                saveContactBtn.classList.remove('btn-pulse');
                 
                 setTimeout(() => {
                     saveContactBtn.innerHTML = originalText;
                     saveContactBtn.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
-                    saveContactBtn.classList.add('btn-pulse');
                 }, 2000);
             });
             
